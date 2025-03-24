@@ -67,4 +67,12 @@ public class User {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+    public int getFollowingCount() {
+        return followingCount.getCount();
+    }
+
+    public int getFollowerCount() {
+        return followerCount.getCount();
+    }
 }
