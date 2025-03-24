@@ -1,7 +1,7 @@
 package org.psjw.user.application;
 
 import java.util.IllformedLocaleException;
-import org.psjw.user.application.dto.CreatedUserRequestDto;
+import org.psjw.user.application.dto.CreateUserRequestDto;
 import org.psjw.user.application.interfaces.UserRepository;
 import org.psjw.user.domain.User;
 import org.psjw.user.domain.UserInfo;
@@ -15,7 +15,7 @@ public class UserService {
     }
 
 
-    public User createUser(CreatedUserRequestDto dto) {
+    public User createUser(CreateUserRequestDto dto) {
         UserInfo info = new UserInfo(dto.name(), dto.profileImageUrl());
         User user = new User(null, info);
         return userRepository.save(user);

@@ -6,7 +6,7 @@ import org.psjw.common.domain.PositiveIntegerCounter;
 public class User {
 
     private final Long id;
-    private final UserInfo info;
+    private final UserInfo userInfo;
     private final PositiveIntegerCounter followingCount;
     private final PositiveIntegerCounter followerCount;
 
@@ -16,7 +16,7 @@ public class User {
         }
 
         this.id = id;
-        this.info = userInfo;
+        this.userInfo = userInfo;
         this.followingCount = new PositiveIntegerCounter();
         this.followerCount = new PositiveIntegerCounter();
     }
@@ -75,4 +75,17 @@ public class User {
     public int getFollowerCount() {
         return followerCount.getCount();
     }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public int followerCount() {
+        return followerCount.getCount();
+    }
+
+    public int followingCount(){
+        return followingCount.getCount();
+    }
+
 }

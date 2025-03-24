@@ -11,4 +11,8 @@ public class UserInfo {
         this.name = name;
         this.prifileImageUrl = profileImageUrl;
     }
+
+    public String getName() {
+        return name;
+    }
 }
