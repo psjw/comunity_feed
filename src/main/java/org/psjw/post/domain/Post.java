@@ -1,6 +1,7 @@
 package org.psjw.post.domain;
 
 import org.psjw.common.domain.PositiveIntegerCounter;
+import org.psjw.post.domain.content.Content;
 import org.psjw.post.domain.content.PostContent;
 import org.psjw.post.domain.content.PostPublicationState;
 import org.psjw.user.domain.User;
@@ -9,11 +10,11 @@ public class Post {
     private final Long id;
     private final User author;
 //    private final Long authorId;
-    private final PostContent content;
+    private final Content content;
     private final PositiveIntegerCounter likeCount;
     private PostPublicationState state;
 
-    public Post(Long id,User author, PostContent content) {
+    public Post(Long id,User author, Content content) {
         if (author == null) {
             throw new IllegalArgumentException();
         }
@@ -33,7 +34,7 @@ public class Post {
         likeCount.increase();
     }
 
-    public void unlike(User user) {
+    public void unlike() {
         this.likeCount.decrease();
     }
 
@@ -44,5 +45,13 @@ public class Post {
 
         this.state = state;
         this.content.updateContent(updateContent);
+    }
+
+    public int getLikeCount() {
+        return likeCount.getCount();
+    }
+
+    public String getContent() {
+        return content.getContentText();
     }
 }

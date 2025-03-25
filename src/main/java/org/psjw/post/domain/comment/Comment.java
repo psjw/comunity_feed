@@ -1,19 +1,18 @@
 package org.psjw.post.domain.comment;
 
-import java.util.Locale;
 import org.psjw.common.domain.PositiveIntegerCounter;
-import org.psjw.post.domain.Post;
-import org.psjw.post.domain.content.PostContent;
+import org.psjw.post.domain.content.CommentContent;
+import org.psjw.post.domain.content.Content;
 import org.psjw.user.domain.User;
 
 public class Comment {
 
     private final Long id;
     private final User author;
-    private final PostContent content;
+    private final Content content;
     private final PositiveIntegerCounter likeCount;
 
-    public Comment(Long id, User author, PostContent content) {
+    public Comment(Long id, User author, Content content) {
         if(author == null) {
             throw new IllegalArgumentException();
         }
@@ -30,7 +29,7 @@ public class Comment {
         likeCount.increase();
     }
 
-    public void unlike(User user) {
+    public void unlike() {
         this.likeCount.decrease();
     }
 
@@ -39,5 +38,13 @@ public class Comment {
             throw new IllegalArgumentException();
         }
         this.content.updateContent(updatedContent);
+    }
+
+    public int getLikeCount() {
+        return likeCount.getCount();
+    }
+
+    public String getContent() {
+        return content.getContentText();
     }
 }

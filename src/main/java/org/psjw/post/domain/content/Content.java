@@ -3,8 +3,8 @@ package org.psjw.post.domain.content;
 import org.psjw.post.domain.common.DatetimeInfo;
 
 public abstract class Content {
-    String contentText;
-    final DatetimeInfo datetimeInfo;
+    protected String contentText;
+    protected final DatetimeInfo datetimeInfo;
 
     protected Content(String contentText) {
         checkText(contentText);
@@ -23,4 +23,5 @@ public abstract class Content {
     public String getContentText() {
         return contentText;
     }
+
 }
